@@ -2,29 +2,9 @@ import { useState } from "react";
 import { Button, StyleSheet, Text, View, TextInput } from "react-native";
 
 export default function App() {
-	const [name, setName] = useState("Sami");
-	const [newName, setNewName] = useState();
-
 	return (
 		<View style={styles.container}>
-			<Text>My Name is {name}. But you can change it.</Text>
-			<TextInput
-				style={[styles.mTop20, styles.input]}
-				placeholder="Type New Name.."
-				keyboardType="alphanumeric"
-				value={newName}
-				onChangeText={setNewName}
-			/>
-			<View style={styles.mTop20}>
-				<Button
-					disabled={!newName}
-					title="Click to Change Name"
-					onPress={() => {
-						setName(newName);
-						setNewName("");
-					}}
-				/>
-			</View>
+			<Text>Hello</Text>
 		</View>
 	);
 }
@@ -35,14 +15,5 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	mTop20: {
-		marginTop: 30,
-	},
-	input: {
-		borderWidth: 1,
-		padding: 10,
-		borderRadius: 5,
-		width: "70%",
 	},
 });
