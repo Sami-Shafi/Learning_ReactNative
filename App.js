@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
+import { StyleSheet, Text, View, FlatList, Alert } from "react-native";
 import Header from "./components/Header";
 import TodoItem from "./components/TodoItem";
 import AddTodo from "./components/AddTodo";
@@ -19,7 +19,13 @@ export default function App() {
 	};
 
 	const handleAdd = (text) => {
-		setTodos([{ name: text, key: Math.random() }, ...todos]);
+		if (text.length > 3) {
+			setTodos([{ name: text, key: Math.random() }, ...todos]);
+		} else {
+			Alert.alert("OOPS!", "Task content must be above 3 characters.", [
+				{ text: "Okay" },
+			]);
+		}
 	};
 
 	return (
